@@ -78,35 +78,33 @@
           
         </div>
         <br>
-        <div class="">
+        <div class="card-body">
           <form  role="form" [formGroup]="alumniForm" class="php-email-form">
             <div class="row">
               <div class="col-md-6 form-group">
                 
                 <input type="text" formControlName="fname" name="fname" class="form-control" id="fname" [(ngModel)]="alumni.fname"  placeholder="First Name" required>
-                <small *ngIf="(alumni.fname == null || alumni.fname == undefined) && submitted" style="color: red;">*Required  </small>
+                <small class="label-align-left" *ngIf="(alumni.fname == null || alumni.fname == undefined) && submitted">*Required  </small>
                 
               </div>
              
               <div class="col-md-6 form-group">
                 <input type="text" formControlName="lname" name="lname" class="form-control" id="lname" [(ngModel)]="alumni.lname" placeholder="Last Name" required>
-                <small *ngIf="(alumni.lname == null || alumni.lname == undefined) && submitted" style="color: red;">*Required  </small>
+                <small *ngIf="(alumni.lname == null || alumni.lname == undefined) && submitted" class="label-align-left">*Required  </small>
                 
               </div>
               <br><br><br>
               
-              <div class="col-md-6 form-group mt-3 mt-md-0">
+              <div class="col-md-6 form-group">
                 <input type="email" formControlName="email"[(ngModel)]="alumni.email"  class="form-control" name="email" id="email" placeholder="Email" required>
-                <small *ngIf="!isMail && (alumni.email != null && alumni.email != undefined)" style="color: red;"> Invalid  </small>
-                <small *ngIf="(alumni.email == null || alumni.email == undefined) && submitted" style="color: red;">*Required  </small>
+                <small *ngIf="!isMail && (alumni.email != null && alumni.email != undefined)" class="label-align-left"> Invalid  </small>
+                <small *ngIf="(alumni.email == null || alumni.email == undefined) && submitted" class="label-align-left">*Required  </small>
                 
               </div>
 
-              <div class="col-md-6 form-group">
-                
-                
-                <input type="number" name="contact" formControlName="contact" class="form-control" id="contact" [(ngModel)]="alumni.contact" placeholder="Mobile Number" required>
-                <small *ngIf="(alumni.contact == null || alumni.contact == undefined) && submitted" style="color: red;">*Required  </small>
+              <div class="col-md-6 form-group ">
+                <input type="text" name="contact" formControlName="contact" class="form-control" maxlength="10" id="contact" [(ngModel)]="alumni.contact" placeholder="Mobile Number" required>
+                <small *ngIf="(alumni.contact == null || alumni.contact == undefined) && submitted" class="label-align-left">*Required  </small>
                 
               </div>
               
@@ -120,51 +118,54 @@
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                 </select>
+                <small *ngIf="(alumni.gender == null || alumni.gender == undefined) && submitted" class="label-align-left">*Required  </small>
+                
               </div>
 
               <div class="col-md-6 form-group">
                 <input type="date" formControlName="dob" placeholder="Date of Birth" name="dob" id="dob"  class="form-control" name="dob" [(ngModel)]="alumni.dob">
-                <small *ngIf="(alumni.dob == null || alumni.dob == undefined) && submitted" style="color: red;">*Required  </small>
+                <small *ngIf="(alumni.dob == null || alumni.dob == undefined) && submitted" class="label-align-left">*Required  </small>
                 
               </div>
               <br><br><br>
               <div class="col-md-6 form-group">
                 <textarea class="form-control" formControlName="message" name="message" rows="5" placeholder="Address" [(ngModel)]="alumni.message" required></textarea>
-                <small *ngIf="(alumni.message == null || alumni.message == undefined) && submitted" style="color: red;">*Required  </small>
+                <small *ngIf="(alumni.message == null || alumni.message == undefined) && submitted" class="label-align-left">*Required  </small>
                 
               </div>
               
               <br><br><br><br><br><br>
               <div class="col-md-6 form-group">
                 <input type="text" name="city" formControlName="city" class="form-control" id="city" [(ngModel)]="alumni.city" placeholder="City" required>
-                <small *ngIf="(alumni.city == null || alumni.city == undefined) && submitted" style="color: red;">*Required  </small>
+                <small *ngIf="(alumni.city == null || alumni.city == undefined) && submitted" class="label-align-left">*Required  </small>
                 
               </div>
               <br><br><br>
               <div class="col-md-6 form-group">
                 <input type="text" name="pincode" formControlName="pincode" class="form-control" id="pincode" [(ngModel)]="alumni.pincode" placeholder="Pincode" required>
-                <small *ngIf="(alumni.pincode == null || alumni.pincode == undefined) && submitted" style="color: red;">*Required  </small>
+                <small *ngIf="(alumni.pincode == null || alumni.pincode == undefined) && submitted" class="label-align-left">*Required  </small>
                 
               </div>
 
 
               <div class="col-md-6 form-group mt-3 mt-md-0">
-                <input type="state" class="form-control" formControlName="state" name="state" id="state" [(ngModel)]="alumni.state" placeholder="State" required>
-                <small *ngIf="(alumni.state == null || alumni.state == undefined) && submitted" style="color: red;">*Required  </small>
+                <input type="text" class="form-control" formControlName="state" name="state" id="state" [(ngModel)]="alumni.state" placeholder="State" required>
+                <small *ngIf="(alumni.state == null || alumni.state == undefined) && submitted" class="label-align-left">*Required  </small>
                 
               </div>
               <br><br><br>
-              <div class="col-md-6 form-group mt-3 mt-md-0">
-                <input type="district" class="form-control" formControlName="district"  name="district" id="district" [(ngModel)]="alumni.district" placeholder="District" required>
-                <small *ngIf="(alumni.district == null || alumni.district == undefined) && submitted" style="color: red;">*Required  </small>
-                
-              </div>
+            
               
               <div class="col-md-6 form-group mt-3 mt-md-0">
-                <input type="password" formControlName="password" class="form-control" name="password" id="password" [(ngModel)]="alumni.password" placeholder="Password" required>
-                <small *ngIf="!isPswd && (alumni.password != null && alumni.password != undefined)" style="color: red;"> Invalid  Password</small>
-                <small *ngIf="(alumni.password == null || alumni.password == undefined) && submitted" style="color: red;">*Required  </small>
+                <input type="password" formControlName="password" class="form-control" name="password"  id="password" [(ngModel)]="alumni.password" placeholder="Password" required>
+                <small *ngIf="!isPswd && (alumni.password != null && alumni.password != undefined)" class="label-align-left"> Invalid  Password</small>
+                <small *ngIf="(alumni.password == null || alumni.password == undefined) && submitted" class="label-align-left">*Required  </small>
                 
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="password" class="form-control" formControlName="confirm_password"  name="confirm_password" id="confirm_password" [(ngModel)]="alumni.confirm_password" placeholder="Confirm Password" required>
+                <small *ngIf="(alumni.confirm_password == null || alumni.confirm_password == undefined) && submitted" class="label-align-left">*Required  </small>
+                <small *ngIf="(alumni.confirm_password != alumni.password) && alumni.confirm_password != null && alumni.confirm_password != undefined  && submitted" class="label-align-left">*Password mismatch  </small>
               </div>
               
             </div>
@@ -189,99 +190,7 @@
           
         </div> -->
 
-        <!-- <div class="row"> -->
 
-   
-
-          <!-- <div class="">
-            <form  role="form" [formGroup]="alumniForm" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" formControlName="fname" name="fname" class="form-control" id="fname" [(ngModel)]="alumni.fname"  placeholder="First Name" required>
-                  <small *ngIf="(alumni.fname == null || alumni.fname == undefined) && submitted" style="color: red;">*Required  </small>
-                  
-                </div>
-               
-                <div class="col-md-6 form-group">
-                  <input type="text" formControlName="lname" name="lname" class="form-control" id="lname" [(ngModel)]="alumni.lname" placeholder="Last Name" required>
-                  <small *ngIf="(alumni.lname == null || alumni.lname == undefined) && submitted" style="color: red;">*Required  </small>
-                  
-                </div>
-                <br><br><br>
-                
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" formControlName="email"[(ngModel)]="alumni.email"  class="form-control" name="email" id="email" placeholder="Email" required>
-                  <small *ngIf="!isMail && (alumni.email != null && alumni.email != undefined)" style="color: red;"> Invalid  </small>
-                  <small *ngIf="(alumni.email == null || alumni.email == undefined) && submitted" style="color: red;">*Required  </small>
-                  
-                </div>
-
-                <div class="col-md-6 form-group">
-                  <input type="text" name="contact" formControlName="contact" class="form-control" id="contact" [(ngModel)]="alumni.contact" placeholder="Mobile Number" required>
-                  <small *ngIf="(alumni.contact == null || alumni.contact == undefined) && submitted" style="color: red;">*Required  </small>
-                  
-                </div>
-                
-                <br><br><br>
-                
-                <div class="col-md-6 form-group">
-                  <p>Gender</p><input type="radio" formControlName="gender" name="gender" [(ngModel)]="alumni.gender" value="male"> Male
-                  <input type="radio" name="gender" formControlName="gender" [(ngModel)]="alumni.gender" value="female"> Female
-                </div>
-
-                <div class="col-md-6 form-group">
-                  <label for="dob">DOB</label>&nbsp;&nbsp;
-                  <input type="date" formControlName="dob" name="dob" id="dob" name="dob" [(ngModel)]="alumni.dob">
-                  <small *ngIf="(alumni.dob == null || alumni.dob == undefined) && submitted" style="color: red;">*Required  </small>
-                  
-                </div>
-                <br><br><br>
-                <div class="col-md-6 form-group">
-                  <textarea class="form-control" formControlName="message" name="message" rows="5" placeholder="Address" [(ngModel)]="alumni.message" required></textarea>
-                  <small *ngIf="(alumni.message == null || alumni.message == undefined) && submitted" style="color: red;">*Required  </small>
-                  
-                </div>
-                
-                <br><br><br><br><br><br>
-                <div class="col-md-6 form-group">
-                  <input type="text" name="city" formControlName="city" class="form-control" id="city" [(ngModel)]="alumni.city" placeholder="City" required>
-                  <small *ngIf="(alumni.city == null || alumni.city == undefined) && submitted" style="color: red;">*Required  </small>
-                  
-                </div>
-                <br><br><br>
-                <div class="col-md-6 form-group">
-                  <input type="text" name="pincode" formControlName="pincode" class="form-control" id="pincode" [(ngModel)]="alumni.pincode" placeholder="Pincode" required>
-                  <small *ngIf="(alumni.pincode == null || alumni.pincode == undefined) && submitted" style="color: red;">*Required  </small>
-                  
-                </div>
-
-
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="state" class="form-control" formControlName="state" name="state" id="state" [(ngModel)]="alumni.state" placeholder="State" required>
-                  <small *ngIf="(alumni.state == null || alumni.state == undefined) && submitted" style="color: red;">*Required  </small>
-                  
-                </div>
-                <br><br><br>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="district" class="form-control" formControlName="district"  name="district" id="district" [(ngModel)]="alumni.district" placeholder="District" required>
-                  <small *ngIf="(alumni.district == null || alumni.district == undefined) && submitted" style="color: red;">*Required  </small>
-                  
-                </div>
-                
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="password" formControlName="password" class="form-control" name="password" id="password" [(ngModel)]="alumni.password" placeholder="Password" required>
-                  <small *ngIf="!isPswd && (alumni.password != null && alumni.password != undefined)" style="color: red;"> Invalid  Password</small>
-                  <small *ngIf="(alumni.password == null || alumni.password == undefined) && submitted" style="color: red;">*Required  </small>
-                  
-                </div>
-              </div>
-              
-              <br><br><br><br>
-              <div class="text-center">
-                <button type="submit" (click)="register()" class="btn btn-primary btn-block">Create Account</button>
-              </div>
-            </form>
-          </div> -->
 
         <!-- </div> -->
 

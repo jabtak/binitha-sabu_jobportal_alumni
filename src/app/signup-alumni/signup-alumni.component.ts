@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {Employee,Alumni} from '../shared/signup.model';
 import { NgModule } from '@angular/core';
+import {Router} from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import {AlumniService} from '../shared/alumni.service';
@@ -23,7 +24,7 @@ export class SignupAlumniComponent implements OnInit {
 // HttpClientModule,
 // FormsModule,
 // CommonModule
-  constructor(private service:AlumniService, private formBuilder: FormBuilder) {
+  constructor(private router:Router ,private service:AlumniService, private formBuilder: FormBuilder) {
     this.alumni=new Alumni();
     this.isMail = true;
     this.isPswd = true;
@@ -38,9 +39,9 @@ export class SignupAlumniComponent implements OnInit {
       city: [''],
       pincode: [''],
       state: [''],
-      district: [''],
       password: [''],
-      email:['']
+      email:[''],
+      confirm_password:['']
     });
    }
 
@@ -117,27 +118,17 @@ export class SignupAlumniComponent implements OnInit {
   
     }
 
+    
     register(){
       this.submitted = true;
-      var alumni = new Alumni()
-      alumni.fname= "ptcd";
-      alumni.lname ="dfdf";
-      alumni.contact ="dd";
-      alumni.gender = "ddds";
-      alumni.dob = "rete";
-      alumni.message= "ptcd";
-      alumni.city ="dfdf";
-      alumni.pincode ="dd";
-      alumni.state = "ddds";
-      alumni.district = "rete";
-      alumni.password = "fgfgf";
-
      
-     if(this.isValidEmail() && !Object.values(this.alumni).some(element => element == null || element == undefined)){  
+     if(this.isValidEmail() && (this.alumni.password ==this.alumni.confirm_password) && !Object.values(this.alumni).some(element => element == null || element == undefined)){  
        //alert("dd");
        if(this.isValidPassword()){
+         debugger;
       this.service.postAlumni(this.alumni).subscribe((res) => {
         console.log(this.alumni);
+        this.router.navigate(['/sign-in']);
        });
       }
      }

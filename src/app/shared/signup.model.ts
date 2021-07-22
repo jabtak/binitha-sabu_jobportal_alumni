@@ -20,6 +20,6 @@ export class Alumni{
     city: any;
     pincode: any;
     state: any;
-    district: any;
     password: any;
+    confirm_password: any;
 }
